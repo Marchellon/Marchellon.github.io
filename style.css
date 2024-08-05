@@ -14,14 +14,17 @@ body, html {
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.5;
-    background-image: url('imgs/fundo.png');
-    background-size: cover;
-    background-position: center;
+    background-image: url("imgs/fundo.png");
     background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2{
+    color: #e9c74b;
 }
 
 .container {
-    width: 80%;
+    width: 70%;
     margin: auto;
     overflow: hidden;
 }
@@ -101,7 +104,6 @@ footer p {
     margin: 0;
 }
 
-/* hamburguer */
 .hamburger-icon {
     display: none;
     cursor: pointer;
@@ -118,11 +120,11 @@ footer p {
     background-color: #fff;
 }
 
-/* responsividade - marcação pra se achar facil marcelo animal ------------------------------ */
+/* responsividade marcação pro marcelo animal --------------------------------------------------------------------------*/
 
 @media (max-width: 1024px) {
 
-    body, html{
+    body, html {
         font-size: 30px;
     }
 
@@ -228,7 +230,7 @@ footer p {
 
 @media (max-width: 480px) {
 
-    body,html{
+    body, html {
         font-size: 20px;
     }
 
@@ -257,4 +259,24 @@ footer p {
     .section-content .texto h3 {
         text-align: center;
     }
+}
+
+.flash {
+    animation: flash 1.5s ease-out;
+}
+
+@keyframes flash {
+    0% {
+        background-color: #fff9a1;
+    }
+    50%{
+        background-color: #fff9a183;
+    }
+    100% {
+        background-color: #f6ffa380;
+    }
+}
+
+.section {
+    transition: background-color 1.5s ease-in-out;
 }
