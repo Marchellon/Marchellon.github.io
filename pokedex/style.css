@@ -25,6 +25,8 @@ img {
 .titulo {
     height: 350px;
     margin: auto;
+    width: 100%;
+    text-align: center;
 }
 
 .poke-container {
@@ -34,6 +36,7 @@ img {
     justify-content:center;
     margin: 0 auto;
     max-width: 80%;
+    height: auto;
 }
 
 .pokemon {
@@ -44,6 +47,7 @@ img {
     padding: 20px;
     text-align: center;
     border: 3px solid black;
+    width: 200px;
 }
 
 .pokemon:hover {
@@ -116,9 +120,36 @@ footer {
     text-align: center;
     color: #fff;
     font-size:x-large;
+    margin-top: auto;
 }
 
 footer a {
     text-decoration: none;
     color: inherit;
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        display: none;
+    }
+
+    .poke-container {
+        align-items: center;
+    }
+
+    .pokemon {
+        width: 90%;
+        height: auto;
+        font-size: 1.5em;
+        padding: 20px;
+    }
+
+    .pokemon:hover {
+        transform: none;
+        transition: none;
+    }
+
+    .pokemon .img-container img{
+        width: 100%;
+    }
 }
