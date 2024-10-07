@@ -1,6 +1,9 @@
 const poke_container = document.getElementById('poke-container');
 const pokemon_count = 386;
 const colors = {
+
+    // lista das cores
+
     fire: '#da3f3f',
     grass: '#64cb67',
     electric: '#f8ff5b',
@@ -23,6 +26,8 @@ const colors = {
 
 const loadingIndicator = document.createElement('div');
 
+// função pra dar fetch nos pokemon tudo
+
 const fetchPokemons = async () => {
     loadingIndicator.style.display = 'block';
     const promises = [];
@@ -40,6 +45,8 @@ const fetchPokemons = async () => {
     }
 };
 
+// pegar pokemon
+
 const getPokemon = async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     try {
@@ -53,6 +60,8 @@ const getPokemon = async (id) => {
         return null;
     }
 };
+
+// carta, configuação das cores
 
 const createPokemonCard = (pokemon) => {
     if (!pokemon) return;
@@ -74,6 +83,8 @@ const createPokemonCard = (pokemon) => {
 
     const typesHTML = poke_types.map(type => `<span>${type}</span>`).join(', ');
 
+    // html da "carta"
+
     const pokemonInnerHTML = `
         <div class="img-container">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}">
@@ -88,6 +99,8 @@ const createPokemonCard = (pokemon) => {
     pokemonEl.innerHTML = pokemonInnerHTML;
     poke_container.appendChild(pokemonEl);
 };
+
+// barra de pesquisa
 
 let input = document.getElementById('searchbar')
 
