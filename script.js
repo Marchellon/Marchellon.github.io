@@ -2,7 +2,7 @@ const poke_container = document.getElementById('poke-container');
 const pokemon_count = 386;
 const colors = {
 
-    // lista das cores
+    // mapa das cores
 
     fire: '#da3f3f',
     grass: '#64cb67',
@@ -24,12 +24,9 @@ const colors = {
     dark: '#525252'
 };
 
-const loadingIndicator = document.createElement('div');
-
 // função pra dar fetch nos pokemon tudo
 
 const fetchPokemons = async () => {
-    loadingIndicator.style.display = 'block';
     const promises = [];
     for (let i = 1; i <= pokemon_count; i++) {
         promises.push(getPokemon(i));
@@ -100,23 +97,17 @@ const createPokemonCard = (pokemon) => {
     poke_container.appendChild(pokemonEl);
 };
 
-// barra de pesquisa
+// pesquisa
 
 let input = document.getElementById('searchbar')
 
 function searchPokemon() {
-    let input = document.getElementById('searchbar').value.toLowerCase();
+    let pesquisa = input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     let pokemons = document.querySelectorAll('.pokemon');
 
-    if (input === '') {
-        pokemons.forEach(pokemon => {
-            pokemon.style.display = "block";
-        });
-        return;
-    }
-
     pokemons.forEach(pokemon => {
-        if (!pokemon.innerHTML.toLowerCase().includes(input)) {
+        let pokemonName = pokemon.querySelector('.name').textContent.toLowerCase();
+        if (!pokemonName.includes(pesquisa)) {
             pokemon.style.display = "none";
         } else {
             pokemon.style.display = "block";
