@@ -37,8 +37,6 @@ const fetchPokemons = async () => {
         pokemons.forEach(pokemon => createPokemonCard(pokemon));
     } catch (error) {
         console.error('Error fetching Pokémon:', error);
-    } finally {
-        loadingIndicator.style.display = 'none';
     }
 };
 
